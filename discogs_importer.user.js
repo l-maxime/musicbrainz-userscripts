@@ -2,14 +2,14 @@
 
 // @name           Import Discogs releases to MusicBrainz
 // @description    Add a button to import Discogs releases to MusicBrainz and add links to matching MusicBrainz entities for various Discogs entities (artist,release,master,label)
-// @version        2015.07.07.0
+// @version        2016.02.17.0
 // @namespace      http://userscripts.org/users/22504
-// @downloadURL    https://raw.github.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js
-// @updateURL      https://raw.github.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js
-// @include        http://www.discogs.com/*
-// @include        http://*.discogs.com/*release/*
-// @exclude        http://*.discogs.com/*release/*?f=xml*
-// @exclude        http://www.discogs.com/release/add
+// @downloadURL    https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js
+// @updateURL      https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js
+// @include        http*://www.discogs.com/*
+// @include        http*://*.discogs.com/*release/*
+// @exclude        http*://*.discogs.com/*release/*?f=xml*
+// @exclude        http*://www.discogs.com/release/add
 // @require        https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
 // @require        lib/mbimport.js
 // @require        lib/logger.js
@@ -60,7 +60,7 @@ $(document).ready(function(){
     if (current_page_info.type == 'release') {
 
         // Discogs Webservice URL
-        var discogsWsUrl = 'http://api.discogs.com/releases/' + current_page_info.id;
+        var discogsWsUrl = 'https://api.discogs.com/releases/' + current_page_info.id;
 
         $.ajax({
             url: discogsWsUrl,
@@ -284,7 +284,7 @@ var link_infos = {};
 // Parse discogs url to extract info, returns a key and set link_infos for this key
 // the key is in the form discogs_type/discogs_id
 function getDiscogsLinkKey(url) {
-    var re = /^http:\/\/(?:www|api)\.discogs\.com\/(?:(?:(?!sell).+|sell.+)\/)?(master|release|artist|label)s?\/(\d+)(?:[^\?#]*)(?:\?noanv=1|\?anv=[^=]+)?$/i;
+    var re = /^https?:\/\/(?:www|api)\.discogs\.com\/(?:(?:(?!sell).+|sell.+)\/)?(master|release|artist|label)s?\/(\d+)(?:[^\?#]*)(?:\?noanv=1|\?anv=[^=]+)?$/i;
     if (m = re.exec(url)) {
       var key = m[1] + '/' + m[2];
       if (!link_infos[key]) {
@@ -368,12 +368,12 @@ function MBIDfromUrl(url, discogs_type, mb_type) {
 
 function insertMbUI(mbUI) {
   var e;
-  if ((e = $("div.section.social")) && e.length) {
-    e.before(mbUI);
+  if ((e = $("div.section.collections")) && e.length) {
+    e.after(mbUI);
   } else if ((e = $('#statistics')) && e.length) {
     e.before(mbUI);
-  } else if ((e = $("div.marketplace_box_links")) && e.length) {
-    e.after(mbUI);
+  } else if ((e = $("div.section.social")) && e.length) {
+    e.before(mbUI);
   }
 }
 
@@ -657,7 +657,7 @@ function parseDiscogsRelease(data) {
         // A1 or A    => Vinyl or Cassette : guess releaseNumber from vinyl side
         // 1-1 or 1.1 => releaseNumber.trackNumber
         // 1          => trackNumber
-        var tmp = trackPosition.match(/(\d+|[A-Z])(?:[\.-](\d+))?/i);
+        var tmp = trackPosition.match(/(\d+|[A-Z])(?:[\.-]+(\d+))?/i);
         if (tmp) {
             tmp[1] = parseInt(tmp[1], 10);
             var buggyTrackNumber = false;
@@ -1054,3 +1054,4 @@ var Countries = {
     "Saint Helena": "SH",
     "Svalbard and Jan Mayen": "SJ"
 };
+
