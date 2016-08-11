@@ -5,13 +5,16 @@
 * [Import Bandcamp releases to MusicBrainz Album Link Helper](#bandcamp_importer_helper)
 * [Import Beatport Pro releases to MusicBrainz](#beatport_pro_importer)
 * [Import Beatport releases to MusicBrainz](#beatport_importer)
+* [Import CD Baby releases to MusicBrainz](#cdbaby_importer)
 * [Import CD1D releases to MusicBrainz](#cd1d_importer)
 * [Import Discogs releases to MusicBrainz](#discogs_importer)
 * [Import Encyclopedisque releases to MusicBrainz](#encyclopedisque_importer)
 * [Import Juno Download releases to MusicBrainz](#juno_download_importer)
 * [Import Last.fm releases to MusicBrainz](#lastfm_importer)
+* [Import Loot releases to MusicBrainz](#loot_importer)
 * [Import Metal Archives releases into MusicBrainz](#metalarchives_importer)
 * [Import Qobuz releases to MusicBrainz](#qobuz_importer)
+* [Import Takealot releases to MusicBrainz](#takealot_importer)
 * [Musicbrainz DiscIds Detector](#mb_discids_detector)
 * [Musicbrainz UI enhancements](#mb_ui_enhancements)
 
@@ -50,6 +53,13 @@ One-click importing of releases from beatport.com/release pages into MusicBrainz
 [![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/beatport_importer.user.js)
 [![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/beatport_importer.user.js)
 
+## <a name="cdbaby_importer"></a> Import CD Baby releases to MusicBrainz
+
+One-click importing of releases from cdbaby.com into MusicBrainz.
+
+[![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/cdbaby_importer.user.js)
+[![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/cdbaby_importer.user.js)
+
 ## <a name="cd1d_importer"></a> Import CD1D releases to MusicBrainz
 
 Add a button on CD1D.com release pages allowing to open MusicBrainz release editor with pre-filled data for the selected release
@@ -62,7 +72,7 @@ Add a button on CD1D.com release pages allowing to open MusicBrainz release edit
 Add a button to import Discogs releases to MusicBrainz and add links to matching MusicBrainz entities for various Discogs entities (artist,release,master,label)
 
 [![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/discogs_importer.user.js)
-[![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.github.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js)
+[![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/discogs_importer.user.js)
 
 ## <a name="encyclopedisque_importer"></a> Import Encyclopedisque releases to MusicBrainz
 
@@ -85,6 +95,13 @@ One-click importing of releases from last.fm into MusicBrainz. PLEASE import rel
 [![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/lastfm_importer.user.js)
 [![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.githubusercontent.com/murdos/musicbrainz-userscripts/master/lastfm_importer.user.js)
 
+## <a name="loot_importer"></a> Import Loot releases to MusicBrainz
+
+Add a button to import Loot.co.za releases to MusicBrainz
+
+[![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/loot_importer.user.js)
+[![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.github.com/murdos/musicbrainz-userscripts/master/loot_importer.user.js)
+
 ## <a name="metalarchives_importer"></a> Import Metal Archives releases into MusicBrainz
 
 Add a button on Metal Archives release pages allowing to open MusicBrainz release editor with pre-filled data for the selected release
@@ -98,6 +115,13 @@ Add a button on Qobuz's album pages to open MusicBrainz release editor with pre-
 
 [![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/qobuz_importer.user.js)
 [![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.github.com/murdos/musicbrainz-userscripts/master/qobuz_importer.user.js)
+
+## <a name="takealot_importer"></a> Import Takealot releases to MusicBrainz
+
+Add a button to import Takealot releases to MusicBrainz
+
+[![Source](https://github.com/jerone/UserScripts/blob/master/_resources/Source-button.png)](https://github.com/murdos/musicbrainz-userscripts/blob/master/takealot_importer.user.js)
+[![Install](https://raw.github.com/jerone/UserScripts/master/_resources/Install-button.png)](https://raw.github.com/murdos/musicbrainz-userscripts/master/takealot_importer.user.js)
 
 ## <a name="mb_discids_detector"></a> Musicbrainz DiscIds Detector
 
