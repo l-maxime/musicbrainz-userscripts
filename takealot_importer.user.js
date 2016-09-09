@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name           Import Takealot releases to MusicBrainz
 // @description    Add a button to import Takealot releases to MusicBrainz
-// @version        2016.04.11.0
+// @version        2016.05.29.0
 // @namespace      https://github.com/murdos/musicbrainz-userscripts
 // @include        http*://www.takealot.com/*
 // @downloadURL    https://raw.github.com/murdos/musicbrainz-userscripts/master/takealot_importer.user.js
@@ -371,6 +371,7 @@ function insertMBSection(release) {
 
 	insertMbUI(mbUI);
 	insertIMGlinks();
+	insertMBLinks();
 
 	$('#mb_buttons').css({
 		display: 'inline-block',
@@ -382,7 +383,7 @@ function insertMBSection(release) {
 	});
 	$('form.musicbrainz_import_search').css({
 		'float': 'right'
-	})
+	});
 	$('form.musicbrainz_import > button').css({
 		width: '100%',
 		'box-sizing': 'border-box'
@@ -391,6 +392,19 @@ function insertMBSection(release) {
 	mbUI.slideDown();
 }
 
+// Insert link to MB release (MB Release need a URL entry to match )
+function insertMBLinks() {
+	var mblinks = new MBLinks('TAKEALOT_CACHE', 7 * 24 * 60); // force refresh of cached links once a week
+
+	// var artist_link = 'http://' + window.location.href.match( /^https?:\/\/(.*)\/album\/.+$/i)[1];
+	// mblinks.searchAndDisplayMbLink(artist_link, 'artist', function (link) { $('div#there').before(link); } );
+
+	var album_link = window.location.href;
+	mblinks.searchAndDisplayMbLink(album_link, 'release', function(link) {
+		$('h1.fn').append(link);
+	});
+
+}
 // Analyze Takealot data and return a release object
 function ParseTakealotPage() {
 	LOGGER.debug("ParseTakealotPage function firing");
@@ -733,7 +747,7 @@ function ParseTakealotPage() {
 		// LOGGER.debug("Tracklist for the selected disc: ", disclistarray[l]);
 		var disc = {
 			'position': l + 1,
-			'format': releaseformat,
+			'format': DiscFormats[releaseformat],
 			'tracks': disclistarray[l]
 		};
 		release.discs.push(disc);
@@ -772,6 +786,11 @@ function ParseTakealotPage() {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //                                   Takealot -> MusicBrainz mapping                                                  //
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var DiscFormats = new Array();
+DiscFormats["CD"] = "CD";
+DiscFormats["DVD"] = "DVD";
+DiscFormats["Audio CD"] = "CD";
 
 var Languages = new Array();
 Languages["Afrikaans"] = "afr";
